@@ -1,8 +1,8 @@
 import * as H from 'history';
 import {reaction} from 'mobx';
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
-import {Link, withRouter} from 'react-router-dom';
+import React from 'react';
+import {Link, RouteComponentProps, withRouter} from 'react-router-dom';
 import {
   ROUTE_AFFILIATE_DETAILS,
   ROUTE_AFFILIATE_STATISTICS,
@@ -14,21 +14,25 @@ import {NumberFormat} from '../NumberFormat';
 import {TabLink, TabPane} from '../Tabs';
 import './style.css';
 
-export class AffiliateTabs extends React.Component<any> {
+interface Props {
+  rootStore: RootStore;
+  history: H.History;
+}
+
+export class AffiliateTabs extends React.Component<
+  Props & RouteComponentProps<any>
+> {
   readonly affiliateStore: AffiliateStore;
   readonly featureStore: FeatureStore;
   readonly history: H.History;
   readonly uiStore: UiStore;
   readonly formatAccuracy: number = 8;
 
-  constructor({
-    rootStore,
-    history
-  }: {
-    rootStore: RootStore;
-    history: H.History;
-  }) {
-    super();
+  constructor(props: Props & RouteComponentProps<any>) {
+    super(props);
+
+    const {rootStore, history} = props;
+
     this.uiStore = rootStore.uiStore;
     this.affiliateStore = rootStore.affiliateStore;
     this.featureStore = rootStore.featureStore;
@@ -161,7 +165,8 @@ export class AffiliateTabs extends React.Component<any> {
                         onClick={this.onReadRulesClicked}
                       >
                         read rules
-                      </Link>.
+                      </Link>
+                      .
                     </li>
                     <li>
                       Share your referral link with friends or place it on your
@@ -524,7 +529,8 @@ export class AffiliateTabs extends React.Component<any> {
                         // tslint:disable-next-line:jsx-no-lambda
                         onChange={() =>
                           (this.affiliateStore.checkAgreement = !this
-                            .affiliateStore.checkAgreement)}
+                            .affiliateStore.checkAgreement)
+                        }
                       />
                       <label
                         htmlFor="checkbox12"

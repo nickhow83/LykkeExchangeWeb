@@ -1,6 +1,6 @@
-import {Dialog} from '@lykkex/react-components';
+import {Dialog} from '@lykkecity/react-components';
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {withRouter} from 'react-router';
 import {RootStoreProps} from '../../App';
 import {ROUTE_TRANSFER_BASE} from '../../constants/routes';
@@ -19,7 +19,7 @@ interface TransferQrWindowProps {
   transferStore?: any;
 }
 
-export const TransferQrWindow: React.SFC<TransferQrWindowProps> = ({
+export const TransferQrWindow: React.FC<TransferQrWindowProps> = ({
   history,
   resetCurrentTransfer,
   showQrWindow,

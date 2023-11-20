@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import * as React from 'react';
+import React from 'react';
 
 interface FormInputProps {
   type: string;
@@ -8,7 +8,7 @@ interface FormInputProps {
   className?: string;
 }
 
-export const FormInput: React.SFC<FormInputProps> = ({
+export const FormInput: React.FC<FormInputProps> = ({
   type,
   value,
   onChange,

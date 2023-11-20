@@ -5,7 +5,7 @@ import {RootStoreProps} from '../../App';
 import {Wrapper} from '../../components/Verification';
 import {STORE_ROOT} from '../../constants/stores';
 
-export const Rejected: React.SFC<RootStoreProps> = ({rootStore}) => {
+export const Rejected: React.FC<RootStoreProps> = ({rootStore}) => {
   return (
     <Wrapper>
       <div className="verification-page__big-title">

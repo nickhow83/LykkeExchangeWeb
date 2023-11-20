@@ -8,7 +8,7 @@ interface QuestionProps {
 }
 
 // tslint:disable-next-line:jsx-no-lambda
-export const QuestionText: React.SFC<QuestionProps> = ({question}) => {
+export const QuestionText: React.FC<QuestionProps> = ({question}) => {
   const renderError = (field: FieldConfig, form: any) =>
     form.errors[field.name] &&
     form.touched[field.name] && <span className="question__error">*</span>;

@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import * as React from 'react';
+import React from 'react';
 import './style.css';
 
 interface FormGroupProps {
@@ -8,7 +8,7 @@ interface FormGroupProps {
   labelClassName?: string;
 }
 
-export const FormGroup: React.SFC<FormGroupProps> = ({
+export const FormGroup: React.FC<FormGroupProps> = ({
   label,
   className,
   labelClassName,

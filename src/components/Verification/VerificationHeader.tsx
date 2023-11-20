@@ -5,7 +5,7 @@ import {RootStoreProps} from '../../App';
 import {AnalyticsEvent} from '../../constants/analyticsEvents';
 import {STORE_ROOT} from '../../constants/stores';
 
-export const VerificationHeader: React.SFC<RootStoreProps> = ({rootStore}) => (
+export const VerificationHeader: React.FC<RootStoreProps> = ({rootStore}) => (
   <div className="lykke-header">
     <div className="lykke-header__desktop-row">
       <div className="lykke-header__logo">

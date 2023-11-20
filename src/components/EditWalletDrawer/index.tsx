@@ -1,5 +1,5 @@
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {WalletModel} from '../../models';
 import {RootStore} from '../../stores';
 import Drawer from '../Drawer';
@@ -12,7 +12,7 @@ interface EditWalletDrawerProps {
   show?: boolean;
 }
 
-export const EditWalletDrawer: React.SFC<EditWalletDrawerProps> = ({
+export const EditWalletDrawer: React.FC<EditWalletDrawerProps> = ({
   wallet = null,
   overlayed = false,
   show = false

@@ -6,7 +6,7 @@ import {Wrapper} from '../../components/Verification';
 import {AnalyticsEvent} from '../../constants/analyticsEvents';
 import {STORE_ROOT} from '../../constants/stores';
 
-export const NeedToFillData: React.SFC<RootStoreProps> = ({rootStore}) => {
+export const NeedToFillData: React.FC<RootStoreProps> = ({rootStore}) => {
   const kycStore = rootStore!.kycStore;
   const analyticsService = rootStore!.analyticsService;
   const tierInfo = kycStore.tierInfo;

@@ -1,5 +1,5 @@
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {STORE_ROOT} from '../../constants/stores';
 import {RootStore} from '../../stores';
 
@@ -13,7 +13,7 @@ export interface RootStoreProps {
   rootStore?: RootStore;
 }
 
-export const CookieBanner: React.SFC<RootStoreProps> = ({rootStore}) => (
+export const CookieBanner: React.FC<RootStoreProps> = ({rootStore}) => (
   <footer className="footer">
     <div className="footer__top">
       <div className="container">
@@ -46,7 +46,8 @@ export const CookieBanner: React.SFC<RootStoreProps> = ({rootStore}) => (
                 <a
                   className="privacy-settings"
                   onClick={() =>
-                    rootStore!.uiStore.setCookieBannerVisibility(true)}
+                    rootStore!.uiStore.setCookieBannerVisibility(true)
+                  }
                 >
                   Privacy Settings
                 </a>

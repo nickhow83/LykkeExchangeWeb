@@ -1,5 +1,5 @@
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {RootStoreProps} from '../../App';
 import {STORE_ROOT} from '../../constants/stores';
 import {WalletModel} from '../../models';
@@ -10,7 +10,7 @@ interface WalletTotalBalanceProps extends RootStoreProps {
   wallet: WalletModel;
 }
 
-export const WalletTotalBalance: React.SFC<WalletTotalBalanceProps> = ({
+export const WalletTotalBalance: React.FC<WalletTotalBalanceProps> = ({
   wallet,
   rootStore
 }) => (

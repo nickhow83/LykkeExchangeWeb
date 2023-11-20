@@ -5,7 +5,7 @@ export class WithdrawSwiftModel {
   @observable id: string;
   @observable accountName: string;
   @observable accountNumber: string;
-  @observable assetId: string;
+  @observable assetId!: string;
   @observable amount: number = 0;
   @observable bankName: string;
   @observable bic: string;

@@ -1,4 +1,4 @@
-import {MenuItem} from '@lykkex/react-components';
+import {MenuItem} from '@lykkecity/react-components';
 import classnames from 'classnames';
 import {observable} from 'mobx';
 import {inject, observer} from 'mobx-react';
@@ -42,8 +42,7 @@ export class SecurityPage extends React.Component<RootStoreProps> {
 
   render() {
     const QR_SIZE = 190;
-    const qrValue = `otpauth://totp/${this.profileStore.email}?secret=${this
-      .profileStore.code2fa}&issuer=Lykke`;
+    const qrValue = `otpauth://totp/${this.profileStore.email}?secret=${this.profileStore.code2fa}&issuer=Lykke`;
 
     return (
       <div className="security-page">
@@ -118,8 +117,7 @@ export class SecurityPage extends React.Component<RootStoreProps> {
                     className="app-link"
                   >
                     <img
-                      src={`${process.env
-                        .PUBLIC_URL}/images/google-play-icn.svg`}
+                      src={`${process.env.PUBLIC_URL}/images/google-play-icn.svg`}
                       alt="Google Play"
                     />
                     Google Play
@@ -164,7 +162,8 @@ export class SecurityPage extends React.Component<RootStoreProps> {
                   guide={false}
                   // tslint:disable-next-line:jsx-no-lambda
                   onChange={(e: any) =>
-                    (this.code2fa = e.currentTarget.value.replace(' ', ''))}
+                    (this.code2fa = e.currentTarget.value.replace(' ', ''))
+                  }
                   value={this.code2fa}
                 />
               </div>

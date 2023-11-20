@@ -1,5 +1,5 @@
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute/index';
 import {ROUTE_AUTH, ROUTE_ROOT} from './constants/routes';

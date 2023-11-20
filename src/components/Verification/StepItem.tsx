@@ -22,11 +22,7 @@ const ICON_MAP = {
   SUBMITTED: `${process.env.PUBLIC_URL}/images/verify_submitted.png`
 };
 
-export const StepItem: React.SFC<StepItemProps> = ({
-  text,
-  status,
-  isActive
-}) => (
+export const StepItem: React.FC<StepItemProps> = ({text, status, isActive}) => (
   <div className="verification-item">
     <span className="verification-item__icon">
       <img src={ICON_MAP[status]} />

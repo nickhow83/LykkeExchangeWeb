@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import * as React from 'react';
+import React from 'react';
 import './style.css';
 
 interface BannerProps {
@@ -12,7 +12,7 @@ interface BannerProps {
   warning?: boolean;
 }
 
-export const Banner: React.SFC<BannerProps> = ({
+export const Banner: React.FC<BannerProps> = ({
   className,
   text,
   title,

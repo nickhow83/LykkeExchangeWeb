@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 
 // tslint:disable-next-line:no-var-requires
@@ -14,7 +14,7 @@ export interface AmountInputProps {
   maxLength?: number;
 }
 
-export const AmountInput: React.SFC<AmountInputProps> = ({
+export const AmountInput: React.FC<AmountInputProps> = ({
   onChange,
   onBlur,
   onFocus,

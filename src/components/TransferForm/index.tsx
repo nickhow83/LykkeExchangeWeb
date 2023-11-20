@@ -1,7 +1,7 @@
-import {Select} from '@lykkex/react-components';
-import * as classnames from 'classnames';
+import {Select} from '@lykkecity/react-components';
+import classnames from 'classnames';
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import {RootStoreProps} from '../../App';
 import {ROUTE_WALLETS_HFT} from '../../constants/routes';
@@ -22,7 +22,7 @@ interface TransferFormProps extends RootStoreProps {
   onTransfer?: (transfer: TransferModel) => any;
 }
 
-export const TransferForm: React.SFC<TransferFormProps> = ({
+export const TransferForm: React.FC<TransferFormProps> = ({
   rootStore,
   onTransfer = () => null
 }) => {
@@ -203,10 +203,7 @@ export const TransferForm: React.SFC<TransferFormProps> = ({
                     <a>
                       <span>{option.assetName}</span>
                       <span className="pull-right">
-                        {asAssetBalance(
-                          option.asset,
-                          option.balanceAvailable
-                        )}{' '}
+                        {asAssetBalance(option.asset, option.balanceAvailable)}{' '}
                         {option.assetName}
                       </span>
                     </a>

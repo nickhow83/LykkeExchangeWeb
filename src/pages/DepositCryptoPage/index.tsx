@@ -1,7 +1,7 @@
 import {observable} from 'mobx';
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
-import * as CopyToClipboard from 'react-copy-to-clipboard';
+import React from 'react';
+import CopyToClipboard from 'react-copy-to-clipboard';
 import {RouteComponentProps} from 'react-router-dom';
 import {RootStoreProps} from '../../App';
 import Spinner from '../../components/Spinner';

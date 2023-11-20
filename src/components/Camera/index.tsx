@@ -60,7 +60,7 @@ export default class Camera extends React.Component<CameraProps, CameraState> {
           <div>
             <div className="camera__wrapper">
               <WebCam
-                ref={ref => {
+                ref={(ref: any) => {
                   this.webCamRef = ref;
                 }}
                 audio={false}

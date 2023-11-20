@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import {observable} from 'mobx';
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {RouteComponentProps} from 'react-router-dom';
 import {RootStoreProps} from '../../App';
 import Spinner from '../../components/Spinner';
@@ -81,7 +81,8 @@ export class ConfirmOperationPage extends React.Component<
                 (including fee ${this.getFeeSize(
                   this.withdrawStore.withdrawCrypto.amount
                 )}
-                ${asset && asset.name})`}:
+                ${asset && asset.name})`}
+              :
             </div>
             <div className="confirm-operation-form">
               <div
@@ -101,7 +102,8 @@ export class ConfirmOperationPage extends React.Component<
                   guide={false}
                   // tslint:disable-next-line:jsx-no-lambda
                   onChange={(e: any) =>
-                    (this.code = e.currentTarget.value.replace(' ', ''))}
+                    (this.code = e.currentTarget.value.replace(' ', ''))
+                  }
                   value={this.code}
                 />
                 {this.error && <span className="help-block">{this.error}</span>}

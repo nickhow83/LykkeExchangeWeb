@@ -1,6 +1,6 @@
-import * as classnames from 'classnames';
+import classnames from 'classnames';
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {RouteComponentProps, withRouter} from 'react-router-dom';
 import {RootStoreProps} from '../../App';
 import {ROUTE_ASSET} from '../../constants/routes';
@@ -14,11 +14,13 @@ type WalletListProps = RootStoreProps &
   WalletActions &
   RouteComponentProps<any>;
 
-export const WalletList: React.SFC<WalletListProps> = ({
+export const WalletList: React.FC<WalletListProps> = ({
   rootStore,
   onEditWallet,
   history,
-  match: {params: {type}}
+  match: {
+    params: {type}
+  }
 }) => {
   const handleAssetRowClick = (assetId: string) => {
     history.push(ROUTE_ASSET(assetId));

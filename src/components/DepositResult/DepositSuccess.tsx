@@ -1,7 +1,7 @@
-import {Icon} from '@lykkex/react-components';
+import {Icon} from '@lykkecity/react-components';
 import {inject, observer} from 'mobx-react';
 import queryString from 'qs';
-import * as React from 'react';
+import React from 'react';
 import {Link, RouteComponentProps} from 'react-router-dom';
 import {RootStoreProps} from '../../App';
 import Spinner from '../../components/Spinner';

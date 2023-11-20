@@ -1,7 +1,7 @@
-import {Checkbox} from '@lykkex/react-components';
+import {Checkbox} from '@lykkecity/react-components';
 import Cookies from 'js-cookie';
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {STORE_ROOT} from '../../constants/stores';
 import {RootStore} from '../../stores';
 
@@ -101,7 +101,8 @@ class CookieBanner extends React.Component<RootStoreProps> {
               label="Statistics"
               checked={this.state.statisticsCheck}
               onToggle={() =>
-                this.setState({statisticsCheck: !this.state.statisticsCheck})}
+                this.setState({statisticsCheck: !this.state.statisticsCheck})
+              }
               className="stats-checkbox"
             />
           </div>

@@ -1,7 +1,7 @@
 import classnames from 'classnames';
-import * as classNames from 'classnames';
+import classNames from 'classnames';
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {AssetModel, WalletModel} from '../../models';
 import {RootStore} from '../../stores';
 import {moneyRound} from '../../utils';
@@ -19,7 +19,7 @@ interface WalletSummaryProps extends WalletActions {
   wallet: WalletModel;
 }
 
-export const WalletSummary: React.SFC<WalletSummaryProps> = ({
+export const WalletSummary: React.FC<WalletSummaryProps> = ({
   wallet,
   onEditWallet,
   baseAssetAsModel

@@ -1,8 +1,8 @@
-import * as classnames from 'classnames';
+import classnames from 'classnames';
 import {Field, FieldProps, Form, Formik, FormikProps} from 'formik';
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
-import * as CopyToClipboard from 'react-copy-to-clipboard';
+import React from 'react';
+import CopyToClipboard from 'react-copy-to-clipboard';
 import {RouteComponentProps} from 'react-router-dom';
 import Yup from 'yup';
 import {RootStoreProps} from '../../App';
@@ -150,12 +150,11 @@ export class DepositSwiftPage extends React.Component<DepositSwiftPageProps> {
                       name={field.name}
                       decimalLimit={asset && asset.accuracy}
                     />
-                    {form.errors[field.name] &&
-                      form.touched[field.name] && (
-                        <span className="help-block">
-                          {form.errors[field.name]}
-                        </span>
-                      )}
+                    {form.errors[field.name] && form.touched[field.name] && (
+                      <span className="help-block">
+                        {form.errors[field.name]}
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
@@ -216,10 +215,9 @@ export class DepositSwiftPage extends React.Component<DepositSwiftPageProps> {
                     <i className="icon icon--copy_thin" />
                   </button>
                 </CopyToClipboard>
-                {field.value &&
-                  form.status === field.value && (
-                    <small className="copy-to-clipboard-message">Copied!</small>
-                  )}
+                {field.value && form.status === field.value && (
+                  <small className="copy-to-clipboard-message">Copied!</small>
+                )}
               </div>
             </div>
           )}

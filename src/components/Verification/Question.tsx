@@ -8,7 +8,7 @@ interface QuestionProps {
   question: Questionnaire;
 }
 
-export const Question: React.SFC<QuestionProps> = ({question}) => {
+export const Question: React.FC<QuestionProps> = ({question}) => {
   let toRender = null;
   switch (question.Type) {
     case 'Text':

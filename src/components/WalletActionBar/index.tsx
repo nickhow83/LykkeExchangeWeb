@@ -5,11 +5,11 @@ import {
   DropdownList,
   DropdownListItem,
   DropdownPosition
-} from '@lykkex/react-components';
-import * as classNames from 'classnames';
+} from '@lykkecity/react-components';
+import classNames from 'classnames';
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
-import * as CopyToClipboard from 'react-copy-to-clipboard';
+import React from 'react';
+import CopyToClipboard from 'react-copy-to-clipboard';
 import {Link} from 'react-router-dom';
 import {RootStoreProps} from '../../App';
 import {AnalyticsEvent, Place} from '../../constants/analyticsEvents';
@@ -64,8 +64,7 @@ export class WalletActionBar extends React.Component<WalletActionBarProps> {
                       {assetsAvailableForCreditCardDeposit &&
                         assetsAvailableForCreditCardDeposit.length > 0 &&
                         this.renderMenuItem(
-                          `${process.env
-                            .PUBLIC_URL}/images/paymentMethods/deposit-credit-card.svg`,
+                          `${process.env.PUBLIC_URL}/images/paymentMethods/deposit-credit-card.svg`,
                           'Credit Card',
                           assetsAvailableForCreditCardDeposit,
                           (assetId: string) =>
@@ -74,8 +73,7 @@ export class WalletActionBar extends React.Component<WalletActionBarProps> {
                       {assetsAvailableForCryptoDeposit &&
                         assetsAvailableForCryptoDeposit.length > 0 &&
                         this.renderMenuItem(
-                          `${process.env
-                            .PUBLIC_URL}/images/paymentMethods/deposit-bl-transfer-icn.svg`,
+                          `${process.env.PUBLIC_URL}/images/paymentMethods/deposit-bl-transfer-icn.svg`,
                           'Blockchain Transfer',
                           assetsAvailableForCryptoDeposit,
                           (assetId: string) => ROUTE_DEPOSIT_CRYPTO_TO(assetId)
@@ -83,8 +81,7 @@ export class WalletActionBar extends React.Component<WalletActionBarProps> {
                       {assetsAvailableForSwiftDeposit &&
                         assetsAvailableForSwiftDeposit.length > 0 &&
                         this.renderMenuItem(
-                          `${process.env
-                            .PUBLIC_URL}/images/paymentMethods/deposit-swift-icn.svg`,
+                          `${process.env.PUBLIC_URL}/images/paymentMethods/deposit-swift-icn.svg`,
                           'SWIFT',
                           assetsAvailableForSwiftDeposit,
                           (assetId: string) => ROUTE_DEPOSIT_SWIFT_TO(assetId)
@@ -104,8 +101,7 @@ export class WalletActionBar extends React.Component<WalletActionBarProps> {
                 <DropdownContainer>
                   <DropdownList className="wallet-menu">
                     {this.renderMenuItem(
-                      `${process.env
-                        .PUBLIC_URL}/images/paymentMethods/withdraw-bl-transfer-icn.svg`,
+                      `${process.env.PUBLIC_URL}/images/paymentMethods/withdraw-bl-transfer-icn.svg`,
                       'Blockchain Transfer',
                       assetsAvailableForCryptoWithdraw,
                       (assetId: string) => ROUTE_WITHDRAW_CRYPTO_FROM(assetId)
@@ -113,8 +109,7 @@ export class WalletActionBar extends React.Component<WalletActionBarProps> {
                   </DropdownList>
                   <DropdownList className="wallet-menu">
                     {this.renderMenuItem(
-                      `${process.env
-                        .PUBLIC_URL}/images/paymentMethods/withdraw-swift-icn.svg`,
+                      `${process.env.PUBLIC_URL}/images/paymentMethods/withdraw-swift-icn.svg`,
                       'SWIFT',
                       assetsAvailableForSwiftWithdraw,
                       (assetId: string) => ROUTE_WITHDRAW_SWIFT_FROM(assetId)
@@ -192,7 +187,8 @@ export class WalletActionBar extends React.Component<WalletActionBarProps> {
                 onClick={() =>
                   getRoute(asset.id).includes('deposit')
                     ? this.trackStartDeposit(title, asset.id)
-                    : this.trackStartWithdraw(title, asset.id)}
+                    : this.trackStartWithdraw(title, asset.id)
+                }
               >
                 <Link to={getRoute(asset.id)}>{asset.name}</Link>
               </DropdownListItem>

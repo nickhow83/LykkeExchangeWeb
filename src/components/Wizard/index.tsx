@@ -1,13 +1,13 @@
-import * as React from 'react';
+import React from 'react';
 
 export interface WizardProps {
   activeIndex: number;
 }
 
-export const Wizard: React.SFC<WizardProps> = props => {
-  const steps = ([] as Array<
-    React.ReactElement<WizardStepProps>
-  >).concat(props.children as Array<React.ReactElement<WizardStepProps>>);
+export const Wizard: React.FC<WizardProps> = props => {
+  const steps = ([] as Array<React.ReactElement<WizardStepProps>>).concat(
+    props.children as Array<React.ReactElement<WizardStepProps>>
+  );
   return steps
     .filter(x => x.props.index === props!.activeIndex)
     .map(x => (
@@ -23,7 +23,7 @@ interface WizardStepProps {
   onCancel: any;
 }
 
-export const WizardStep: React.SFC<WizardStepProps> = ({
+export const WizardStep: React.FC<WizardStepProps> = ({
   title,
   onCancel,
   onNext,

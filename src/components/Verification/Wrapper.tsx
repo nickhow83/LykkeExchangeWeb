@@ -14,7 +14,7 @@ const Spinner = () => (
   </div>
 );
 
-export const Wrapper: React.SFC<WrapperProps> = ({loading, children}) => {
+export const Wrapper: React.FC<WrapperProps> = ({loading, children}) => {
   return (
     <div className={classNames('wrapper', {open: loading})}>
       {children}

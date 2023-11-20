@@ -1,10 +1,11 @@
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
-import {Link, withRouter} from 'react-router-dom';
+import React from 'react';
+import {Link, RouteComponentProps, withRouter} from 'react-router-dom';
 import {RootStoreProps} from '../../App';
 import {AnalyticsEvent, Place} from '../../constants/analyticsEvents';
 import {ROUTE_WALLETS_HFT, ROUTE_WALLETS_TRADING} from '../../constants/routes';
 import {TierInfo} from '../../models';
+import {RootStore} from '../../stores';
 import {Banner} from '../Banner';
 import {TfaDisabledBanner} from '../Banner/TfaDisabledBanner';
 import {TabPane} from '../Tabs';
@@ -16,7 +17,6 @@ interface WalletTabsProps {
   activeTabRoute?: string;
   show2faDisabledBanner?: boolean;
   showBetaBanner?: boolean;
-  showKycBanner?: boolean;
   handleHideBetaBannerClick?: () => void;
   onCreateNewWallet?: () => void;
   isUpgradeRequestRejected?: boolean;
@@ -28,7 +28,9 @@ interface WalletTabsProps {
 
 const KYC_URL = process.env.REACT_APP_KYC_URL as string;
 
-export class WalletTabs extends React.Component<WalletTabsProps> {
+export class WalletTabs extends React.Component<
+  WalletTabsProps & RouteComponentProps<any>
+> {
   render() {
     const {
       isUpgradeRequestNeedToFillData,
@@ -99,8 +101,7 @@ export class WalletTabs extends React.Component<WalletTabsProps> {
               <div>
                 <div>
                   <img
-                    src={`${process.env
-                      .PUBLIC_URL}/images/verify_submitted.png`}
+                    src={`${process.env.PUBLIC_URL}/images/verify_submitted.png`}
                     alt="Check status"
                   />
                   <span className="text">{timeLeftForReview}h left</span>
@@ -152,18 +153,23 @@ export class WalletTabs extends React.Component<WalletTabsProps> {
   };
 }
 
+const mapProps = (rootStore: RootStore): WalletTabsProps => ({
+  activeTabRoute: ROUTE_WALLETS_TRADING,
+  analyticsService: rootStore!.analyticsService,
+  handleHideBetaBannerClick: rootStore!.uiStore.hideBetaBanner,
+  isUpgradeRequestNeedToFillData: rootStore!.kycStore
+    .isUpgradeRequestNeedToFillData,
+  isUpgradeRequestPending: rootStore!.kycStore.isUpgradeRequestPending,
+  isUpgradeRequestRejected: rootStore!.kycStore.isUpgradeRequestRejected,
+  onCreateNewWallet: rootStore!.uiStore.toggleWalletDrawer,
+  show2faDisabledBanner: rootStore!.profileStore.is2faForbidden,
+  showBetaBanner: rootStore!.uiStore.showBetaBanner,
+  tierInfo: rootStore!.kycStore.tierInfo,
+  timeLeftForReview: rootStore!.kycStore.calculateTimeLeftForReview
+});
+
 export default withRouter(
-  inject(({rootStore}: RootStoreProps) => ({
-    analyticsService: rootStore!.analyticsService,
-    handleHideBetaBannerClick: rootStore!.uiStore.hideBetaBanner,
-    isUpgradeRequestNeedToFillData: rootStore!.kycStore
-      .isUpgradeRequestNeedToFillData,
-    isUpgradeRequestPending: rootStore!.kycStore.isUpgradeRequestPending,
-    isUpgradeRequestRejected: rootStore!.kycStore.isUpgradeRequestRejected,
-    onCreateNewWallet: rootStore!.uiStore.toggleWalletDrawer,
-    show2faDisabledBanner: rootStore!.profileStore.is2faForbidden,
-    showBetaBanner: rootStore!.uiStore.showBetaBanner,
-    tierInfo: rootStore!.kycStore.tierInfo,
-    timeLeftForReview: rootStore!.kycStore.calculateTimeLeftForReview
-  }))(observer(WalletTabs))
+  inject(({rootStore}: RootStoreProps) => mapProps(rootStore!))(
+    observer(WalletTabs)
+  )
 );

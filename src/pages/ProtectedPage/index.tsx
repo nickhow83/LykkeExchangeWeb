@@ -1,7 +1,7 @@
-import {MenuItem} from '@lykkex/react-components';
-import * as classNames from 'classnames';
+import {MenuItem} from '@lykkecity/react-components';
+import classNames from 'classnames';
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {Redirect, Route, RouteComponentProps, Switch} from 'react-router-dom';
 import {RootStoreProps} from '../../App';
 import CookieBanner from '../../components/CookieBanner';
@@ -75,9 +75,9 @@ import HistoryPage from '../HistoryPage/index';
 import ManageWhitelistedAddressesPage from '../ManageWhitelistedAddresses/index';
 import TransferPage from '../TransferPage/index';
 
-let RouteWithHeaderAndFooter: React.SFC<
-  RootStoreProps & RouteComponentProps<any> & any
-> = ({rootStore, ...routeProps}) => {
+let RouteWithHeaderAndFooter: React.FC<RootStoreProps &
+  RouteComponentProps<any> &
+  any> = ({rootStore, ...routeProps}) => {
   const uiStore = rootStore!.uiStore;
   const classes = {
     app: true,
@@ -118,7 +118,7 @@ RouteWithHeaderAndFooter = inject(STORE_ROOT)(
   observer(RouteWithHeaderAndFooter)
 );
 
-let NormalRoute: React.SFC<RootStoreProps & RouteComponentProps<any> & any> = ({
+let NormalRoute: React.FC<RootStoreProps & RouteComponentProps<any> & any> = ({
   rootStore,
   ...routeProps
 }) => {

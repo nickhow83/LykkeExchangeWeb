@@ -18,7 +18,7 @@ const descriptionMapping = {
     'You can deposit up to $MaxLimit EUR and trade without limits and fees'
 };
 
-export const AccountCurrentTierWidget: React.SFC<RootStoreProps> = ({
+export const AccountCurrentTierWidget: React.FC<RootStoreProps> = ({
   rootStore
 }) => {
   const kycStore = rootStore!.kycStore;

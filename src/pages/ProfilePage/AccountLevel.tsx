@@ -5,7 +5,7 @@ import {RootStoreProps} from '../../App';
 import {AnalyticsEvent, Place} from '../../constants/analyticsEvents';
 import {STORE_ROOT} from '../../constants/stores';
 
-export const AccountLevel: React.SFC<RootStoreProps> = ({rootStore}) => {
+export const AccountLevel: React.FC<RootStoreProps> = ({rootStore}) => {
   const kycStore = rootStore!.kycStore;
   const analyticsService = rootStore!.analyticsService;
   const tierInfo = kycStore.tierInfo;
@@ -72,9 +72,9 @@ export const AccountLevel: React.SFC<RootStoreProps> = ({rootStore}) => {
       <div className="account-level">
         <div className="account-level__icon">
           <img
-            src={`${process.env.PUBLIC_URL}/images/${isBeginner
-              ? 'verify_ntfd.png'
-              : 'verify_approved.png'}`}
+            src={`${process.env.PUBLIC_URL}/images/${
+              isBeginner ? 'verify_ntfd.png' : 'verify_approved.png'
+            }`}
           />
         </div>
         <div className="account-level-right">

@@ -1,14 +1,7 @@
-import * as classNames from 'classnames';
-import {
-  Field,
-  FieldProps,
-  Form,
-  Formik,
-  FormikActions,
-  FormikProps
-} from 'formik';
+import classNames from 'classnames';
+import {Field, FieldProps, Form, Formik, FormikProps} from 'formik';
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import Yup from 'yup';
 import {RootStoreProps} from '../../App';
@@ -33,7 +26,7 @@ export interface DepositCreditCardFormProps extends RootStoreProps {
 const DISCLAIMER_ERROR = 'User has pending disclaimer';
 const MAX_DEPOSIT_ERROR = 'You can deposit up to';
 
-export const DepositCreditCardForm: React.SFC<DepositCreditCardFormProps> = ({
+export const DepositCreditCardForm: React.FC<DepositCreditCardFormProps> = ({
   rootStore,
   asset,
   handleGoBack,
@@ -58,7 +51,7 @@ export const DepositCreditCardForm: React.SFC<DepositCreditCardFormProps> = ({
     return fee + parseFloat(amount);
   };
   return (
-    <Formik
+    <Formik<{}, DepositCreditCardModel>
       initialValues={deposit}
       validationSchema={Yup.object().shape({
         amount: Yup.number()
@@ -68,12 +61,7 @@ export const DepositCreditCardForm: React.SFC<DepositCreditCardFormProps> = ({
       // tslint:disable-next-line:jsx-no-lambda
       onSubmit={async (
         values: DepositCreditCardModel,
-        {
-          setStatus,
-          setSubmitting,
-          validateForm,
-          submitForm
-        }: FormikActions<DepositCreditCardModel>
+        {setStatus, setSubmitting, validateForm, submitForm}
       ) => {
         onSubmitForm(() => {
           setSubmitting(true);
@@ -133,45 +121,43 @@ export const DepositCreditCardForm: React.SFC<DepositCreditCardFormProps> = ({
                         name={field.name}
                         decimalLimit={asset && asset.accuracy}
                       />
-                      {form.errors[field.name] &&
-                        form.touched[field.name] && (
-                          <span className="help-block">
-                            {form.errors[field.name] ===
-                            DAILY_LIMIT_ERROR_MESSAGE ? (
-                              <span>
-                                Credit card deposit limits reached.{' '}
-                                <a
-                                  className="link"
-                                  href="https://www.lykke.com/cp/wallet-fees-and-limits"
-                                  target="_blank"
-                                >
-                                  Read More
-                                </a>
-                              </span>
-                            ) : (
-                              form.errors[field.name]
-                            )}
-                          </span>
-                        )}
-                      {!!feePercentage &&
-                        asset && (
-                          <div>
-                            <div className="fee-info">
-                              <span className="fee-info__label"> Fee:</span>
-                              <span className="fee-info__value">
-                                {asset && asset.name}{' '}
-                                <NumberFormat
-                                  value={parseFloat(
-                                    (field.value * feePercentage).toFixed(
-                                      asset.accuracy
-                                    )
-                                  )}
-                                  accuracy={asset.accuracy}
-                                />
-                              </span>
-                            </div>
+                      {form.errors[field.name] && form.touched[field.name] && (
+                        <span className="help-block">
+                          {form.errors[field.name] ===
+                          DAILY_LIMIT_ERROR_MESSAGE ? (
+                            <span>
+                              Credit card deposit limits reached.{' '}
+                              <a
+                                className="link"
+                                href="https://www.lykke.com/cp/wallet-fees-and-limits"
+                                target="_blank"
+                              >
+                                Read More
+                              </a>
+                            </span>
+                          ) : (
+                            form.errors[field.name]
+                          )}
+                        </span>
+                      )}
+                      {!!feePercentage && asset && (
+                        <div>
+                          <div className="fee-info">
+                            <span className="fee-info__label"> Fee:</span>
+                            <span className="fee-info__value">
+                              {asset && asset.name}{' '}
+                              <NumberFormat
+                                value={parseFloat(
+                                  (field.value * feePercentage).toFixed(
+                                    asset.accuracy
+                                  )
+                                )}
+                                accuracy={asset.accuracy}
+                              />
+                            </span>
                           </div>
-                        )}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -180,7 +166,7 @@ export const DepositCreditCardForm: React.SFC<DepositCreditCardFormProps> = ({
           />
 
           <Field
-            name={name}
+            name="total"
             // tslint:disable-next-line:jsx-no-lambda
             render={({field, form}: FieldProps<any>) =>
               form.values.amount ? (
@@ -200,7 +186,8 @@ export const DepositCreditCardForm: React.SFC<DepositCreditCardFormProps> = ({
                     </div>
                   </div>
                 </div>
-              ) : null}
+              ) : null
+            }
           />
           <div className="deposit-credit-card-form__dislamier-text">
             Third-party credit card payments are not accepted. First credit card

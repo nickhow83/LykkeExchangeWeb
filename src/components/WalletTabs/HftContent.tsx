@@ -1,5 +1,5 @@
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import {RootStoreProps} from '../../App';
 import {ROUTE_MANAGE_WHITELISTED_ADDRESSES} from '../../constants/routes';
@@ -25,7 +25,8 @@ class HftContent extends React.Component<RootStoreProps> {
               to transfer them to your Trading Wallet first.
             </p>
             <p style={{marginTop: '10px'}} className="hint text-left">
-              Read more about using API here&nbsp;<a
+              Read more about using API here&nbsp;
+              <a
                 className="link"
                 href="https://support.lykke.com/hc/en-us/articles/360019901919-API-Documentation"
                 target="_blank"

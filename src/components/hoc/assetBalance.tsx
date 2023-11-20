@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {AssetModel, BalanceModel} from '../../models/index';
 import {NumberFormat} from '../NumberFormat/index';
 

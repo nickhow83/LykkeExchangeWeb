@@ -1,8 +1,8 @@
-import {Header as LykkeHeader, MenuItem} from '@lykkex/react-components';
+import {Header as LykkeHeader, MenuItem} from '@lykkecity/react-components';
 import classnames from 'classnames';
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
-import {Link, RouteProps, withRouter} from 'react-router-dom';
+import React from 'react';
+import {Link, RouteComponentProps, withRouter} from 'react-router-dom';
 import {RootStoreProps} from '../../App';
 import {
   ROUTE_PROFILE,
@@ -14,9 +14,10 @@ import {STORE_ROOT} from '../../constants/stores';
 
 import './style.css';
 
-const FEES_AND_LIMITS_ROUTE = 'https://support.lykke.com/hc/en-us/articles/115002141125-What-are-the-fees-and-charges-';
+const FEES_AND_LIMITS_ROUTE =
+  'https://support.lykke.com/hc/en-us/articles/115002141125-What-are-the-fees-and-charges-';
 
-export const Header: React.SFC<RootStoreProps & RouteProps> = ({
+export const Header: React.FC<RootStoreProps & RouteComponentProps<any>> = ({
   rootStore,
   location
 }) => {

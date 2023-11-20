@@ -118,7 +118,7 @@ export class Identity extends React.Component<RootStoreProps> {
   }
 }
 
-const DocumentTypeButton: React.SFC<any> = ({name, icon, active, onClick}) => (
+const DocumentTypeButton: React.FC<any> = ({name, icon, active, onClick}) => (
   <div
     onClick={onClick}
     className={classnames('document-type-button', {

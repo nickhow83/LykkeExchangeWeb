@@ -1,5 +1,5 @@
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {Link, RouteComponentProps} from 'react-router-dom';
 import {RootStoreProps} from '../../App';
 import {Banner} from '../../components/Banner';
@@ -75,25 +75,25 @@ export class TransferPage extends React.Component<TransferPageProps> {
                 on Two-Factor Authentication. Find out more about it{' '}
                 <Link to={ROUTE_SECURITY} onClick={this.trackStart2faSetup}>
                   here
-                </Link>.
+                </Link>
+                .
               </span>
             }
           />
 
           <h1>Transfer</h1>
           <h2>
-            {!!newTransfer.asset &&
-              !!newTransfer.from.id && (
-                <span>
-                  {asAssetBalance(
-                    newTransfer.asset,
-                    newTransfer.from.balances.find(
-                      b => b.assetId === newTransfer.asset.id
-                    )!.availableBalance
-                  )}{' '}
-                  {newTransfer.asset.name}
-                </span>
-              )}
+            {!!newTransfer.asset && !!newTransfer.from.id && (
+              <span>
+                {asAssetBalance(
+                  newTransfer.asset,
+                  newTransfer.from.balances.find(
+                    b => b.assetId === newTransfer.asset.id
+                  )!.availableBalance
+                )}{' '}
+                {newTransfer.asset.name}
+              </span>
+            )}
             {!!newTransfer.asset || (
               <NumberFormat value={0} accuracy={DEFAULT_ACCURACY} />
             )}

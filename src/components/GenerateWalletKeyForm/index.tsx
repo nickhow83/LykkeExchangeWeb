@@ -3,11 +3,11 @@ import {
   Dropdown,
   DropdownContainer,
   DropdownControl
-} from '@lykkex/react-components';
+} from '@lykkecity/react-components';
 import classnames from 'classnames';
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
-import * as CopyToClipboard from 'react-copy-to-clipboard';
+import React from 'react';
+import CopyToClipboard from 'react-copy-to-clipboard';
 import {RootStoreProps} from '../../App';
 import {STORE_ROOT} from '../../constants/stores';
 import {WalletModel} from '../../models';
@@ -112,8 +112,9 @@ export class GenerateWalletKeyForm extends React.Component<
           </div>
         </div>
         <div className="hint">
-          <i className="icon icon--info" />Api key is visibile and can be copied
-          only within 1 minute after the creation
+          <i className="icon icon--info" />
+          Api key is visibile and can be copied only within 1 minute after the
+          creation
         </div>
         <Dialog
           className="regenerate-api-key-modal"
@@ -126,7 +127,9 @@ export class GenerateWalletKeyForm extends React.Component<
           description={
             <span>
               This action is irreversible!
-              <br />Previous API key will become invalid<br />
+              <br />
+              Previous API key will become invalid
+              <br />
               <br />
               <div
                 className={classnames('form-group', {

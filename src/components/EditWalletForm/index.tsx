@@ -1,7 +1,7 @@
-import * as classNames from 'classnames';
+import classNames from 'classnames';
 import {extendObservable} from 'mobx';
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import GenerateWalletKeyForm from '../../components/GenerateWalletKeyForm';
 import {WalletModel} from '../../models/index';
 import {RootStore} from '../../stores/index';
@@ -16,7 +16,7 @@ interface EditWalletFormProps {
   pending?: boolean;
 }
 
-export const EditWalletForm: React.SFC<EditWalletFormProps> = ({
+export const EditWalletForm: React.FC<EditWalletFormProps> = ({
   wallet,
   errors,
   onCancel,
@@ -77,7 +77,10 @@ export default inject(
   ({rootStore: {walletStore, uiStore}}: {rootStore: RootStore}) => ({
     errors: uiStore.apiError,
     onCancel: async () => {
-      const {findWalletById, selectedWallet: {id}} = walletStore;
+      const {
+        findWalletById,
+        selectedWallet: {id}
+      } = walletStore;
       extendObservable(findWalletById(id)!, {
         desc: walletStore.origDescription,
         title: walletStore.origName

@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import * as React from 'react';
+import React from 'react';
 import Banner from './';
 
 interface TfaDisabledBannerProps {
@@ -7,7 +7,7 @@ interface TfaDisabledBannerProps {
   show?: boolean;
 }
 
-export const TfaDisabledBanner: React.SFC<TfaDisabledBannerProps> = ({
+export const TfaDisabledBanner: React.FC<TfaDisabledBannerProps> = ({
   className,
   show,
   ...attributes

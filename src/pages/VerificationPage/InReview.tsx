@@ -8,7 +8,7 @@ import VerificationInReviewWidget from '../../components/VerificationInReviewWid
 import {AnalyticsEvent} from '../../constants/analyticsEvents';
 import {STORE_ROOT} from '../../constants/stores';
 
-export const InReview: React.SFC<RootStoreProps & RouteComponentProps<any>> = ({
+export const InReview: React.FC<RootStoreProps & RouteComponentProps<any>> = ({
   rootStore,
   location,
   history

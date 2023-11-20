@@ -1,5 +1,5 @@
 import {formatNumber} from '@lykkex/lykke.js';
-import * as React from 'react';
+import React from 'react';
 
 const formattedNumber = formatNumber(0);
 
@@ -8,7 +8,7 @@ interface NumberFormatProps {
   accuracy: number;
 }
 
-export const NumberFormat: React.SFC<NumberFormatProps> = ({
+export const NumberFormat: React.FC<NumberFormatProps> = ({
   value,
   accuracy
 }) => <span>{formattedNumber(value, accuracy)}</span>;

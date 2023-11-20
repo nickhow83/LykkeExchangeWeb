@@ -1,8 +1,8 @@
-import * as classnames from 'classnames';
+import classnames from 'classnames';
 import {Field, FieldProps, Form, Formik, FormikProps} from 'formik';
 import {computed, observable} from 'mobx';
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {RouteComponentProps} from 'react-router-dom';
 import Yup from 'yup';
 import {RootStoreProps} from '../../App';
@@ -292,12 +292,11 @@ export class WithdrawSwiftPage extends React.Component<WithdrawSwiftPageProps> {
                         name={field.name}
                         decimalLimit={asset && asset.accuracy}
                       />
-                      {form.errors[field.name] &&
-                        form.touched[field.name] && (
-                          <span className="help-block">
-                            {form.errors[field.name]}
-                          </span>
-                        )}
+                      {form.errors[field.name] && form.touched[field.name] && (
+                        <span className="help-block">
+                          {form.errors[field.name]}
+                        </span>
+                      )}
                     </div>
                     {this.displayFee() && (
                       <div>
@@ -370,10 +369,9 @@ export class WithdrawSwiftPage extends React.Component<WithdrawSwiftPageProps> {
                 }}
                 className="form-control"
               />
-              {form.errors[field.name] &&
-                form.touched[field.name] && (
-                  <span className="help-block">{form.errors[field.name]}</span>
-                )}
+              {form.errors[field.name] && form.touched[field.name] && (
+                <span className="help-block">{form.errors[field.name]}</span>
+              )}
             </div>
           )}
         />
@@ -457,10 +455,9 @@ export class WithdrawSwiftPage extends React.Component<WithdrawSwiftPageProps> {
             {...field}
             className="form-control"
           />
-          {form.errors[field.name] &&
-            form.touched[field.name] && (
-              <span className="help-block">{form.errors[field.name]}</span>
-            )}
+          {form.errors[field.name] && form.touched[field.name] && (
+            <span className="help-block">{form.errors[field.name]}</span>
+          )}
         </div>
       )}
     />

@@ -1,6 +1,6 @@
-import {Icon} from '@lykkex/react-components';
+import {Icon} from '@lykkecity/react-components';
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {Link, RouteComponentProps} from 'react-router-dom';
 import {RootStoreProps} from '../../App';
 import {AnalyticsEvent, Place} from '../../constants/analyticsEvents';
@@ -36,8 +36,10 @@ export class WithdrawCryptoSuccess extends React.Component<
         />
         <div className="withdraw-result__desc">
           Your transfer transaction has been
-          <br />successfuly broadcasted to Blockchain.
-          <br />We will notify you when it will be confirmed.
+          <br />
+          successfuly broadcasted to Blockchain.
+          <br />
+          We will notify you when it will be confirmed.
         </div>
         <div className="withdraw-result__button">
           <Link to={ROUTE_WALLETS} className="btn btn--primary">

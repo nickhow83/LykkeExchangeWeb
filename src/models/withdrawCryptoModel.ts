@@ -5,7 +5,7 @@ export class WithdrawCryptoModel {
   @observable id: string;
   @observable baseAddress: string;
   @observable addressExtension: string;
-  @observable assetId: string;
+  @observable assetId!: string;
   @observable amount: number = 0;
   @observable balance: number = 0;
   @observable fee: number = 0;

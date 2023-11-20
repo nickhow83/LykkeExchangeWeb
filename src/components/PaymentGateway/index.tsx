@@ -1,5 +1,5 @@
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {RouteComponentProps} from 'react-router-dom';
 import {RootStoreProps} from '../../App';
 import {
@@ -40,7 +40,7 @@ export class PaymentGateway extends React.Component<PaymentGatewayProps> {
 
   private handleIframeLoaded = (e: React.SyntheticEvent<HTMLIFrameElement>) => {
     try {
-      const currentUrl = e.currentTarget.contentWindow.location.href;
+      const currentUrl = e.currentTarget.contentWindow!.location.href;
       const redirectUrls = {
         [this.depositStore.gatewayUrls
           .okUrl]: ROUTE_DEPOSIT_CREDIT_CARD_SUCCESS,

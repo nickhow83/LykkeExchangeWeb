@@ -10,7 +10,7 @@ export interface ColoredAmountProps {
   value: number;
 }
 
-export const ColoredAmount: React.SFC<ColoredAmountProps> = ({
+export const ColoredAmount: React.FC<ColoredAmountProps> = ({
   accuracy,
   assetName,
   className,

@@ -1,8 +1,8 @@
-import * as classnames from 'classnames';
+import classnames from 'classnames';
 import {Field, FieldProps, Form, Formik, FormikProps} from 'formik';
 import {computed, observable} from 'mobx';
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {Link, RouteComponentProps} from 'react-router-dom';
 import Yup from 'yup';
 import {RootStoreProps} from '../../App';
@@ -407,7 +407,7 @@ export class WithdrawCryptoPage extends React.Component<
             this.withdrawStore.addressExtensionTitle
           )}
         <Field
-          name={name}
+          name="total"
           // tslint:disable-next-line:jsx-no-lambda
           render={({field, form}: FieldProps<WithdrawCryptoModel>) =>
             form.values.amount ? (

@@ -34,7 +34,7 @@ export class HistoryPage extends React.Component<RootStoreProps> {
     return (
       <div className="history-page-wrapper">
         <div className="container">
-          <WalletTabs activeTabRoute={ROUTE_WALLETS_TRADING} />
+          <WalletTabs />
           <Link to={ROUTE_WALLETS_TRADING} className="arrow-back">
             <img
               src={`${process.env.PUBLIC_URL}/images/back-icn.svg`}

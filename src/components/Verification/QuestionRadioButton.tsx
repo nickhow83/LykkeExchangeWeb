@@ -7,7 +7,7 @@ interface QuestionProps {
   question: Questionnaire;
 }
 
-export const QuestionRadioButton: React.SFC<QuestionProps> = ({question}) => {
+export const QuestionRadioButton: React.FC<QuestionProps> = ({question}) => {
   const renderError = (field: FieldConfig, form: any) =>
     form.errors[field.name] &&
     form.touched[field.name] && <span className="question__error">*</span>;

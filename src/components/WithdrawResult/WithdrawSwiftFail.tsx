@@ -1,7 +1,7 @@
-import {Icon} from '@lykkex/react-components';
+import {Icon} from '@lykkecity/react-components';
 import {observable} from 'mobx';
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {RouteComponentProps} from 'react-router-dom';
 import {RootStoreProps} from '../../App';
 import {ROUTE_WITHDRAW_SWIFT_FROM} from '../../constants/routes';
@@ -14,7 +14,7 @@ export class WithdrawSwiftFail extends React.Component<
 > {
   readonly withdrawStore = this.props.rootStore!.withdrawStore;
 
-  @observable assetId: string;
+  @observable assetId!: string;
 
   componentDidMount() {
     this.assetId = this.withdrawStore.withdrawSwift.assetId;

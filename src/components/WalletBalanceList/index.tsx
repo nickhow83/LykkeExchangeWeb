@@ -5,11 +5,11 @@ import {
   DropdownControl,
   DropdownList,
   DropdownListItem
-} from '@lykkex/react-components';
+} from '@lykkecity/react-components';
 import classnames from 'classnames';
 import {action} from 'mobx';
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import {RootStoreProps} from '../../App';
 import {AnalyticsEvent, Place} from '../../constants/analyticsEvents';
@@ -30,8 +30,7 @@ import Spinner from '../Spinner';
 
 import './style.css';
 
-const ASSET_DEFAULT_ICON_URL = `${process.env
-  .PUBLIC_URL}/images/assets/asset_default.jpg`;
+const ASSET_DEFAULT_ICON_URL = `${process.env.PUBLIC_URL}/images/assets/asset_default.jpg`;
 
 // tslint:disable-next-line:no-var-requires
 const QRCode = require('qrcode.react');
@@ -107,7 +106,8 @@ export class WalletBalanceList extends React.Component<WalletBalanceListProps> {
                         className="_currency"
                         // tslint:disable-next-line:jsx-no-lambda
                         onClick={() =>
-                          this.trackClickColumnHeader('Base currency')}
+                          this.trackClickColumnHeader('Base currency')
+                        }
                       >
                         Base currency
                       </th>
@@ -134,7 +134,8 @@ export class WalletBalanceList extends React.Component<WalletBalanceListProps> {
                         key={balance.assetId + balance.balance}
                         // tslint:disable-next-line:jsx-no-lambda
                         onClick={() =>
-                          this.props.onAssetRowClick!(balance.assetId)}
+                          this.props.onAssetRowClick!(balance.assetId)
+                        }
                       >
                         <td className="_asset">
                           <div className="issuer">
@@ -185,18 +186,19 @@ export class WalletBalanceList extends React.Component<WalletBalanceListProps> {
                                       className="qr"
                                       // tslint:disable-next-line:jsx-no-lambda
                                       onMouseOver={() =>
-                                        this.handleQrMouseOver(balance.assetId)}
+                                        this.handleQrMouseOver(balance.assetId)
+                                      }
                                       // tslint:disable-next-line:jsx-no-lambda
                                       onClick={(e: any) =>
-                                        this.handleQrClick(e, balance.assetId)}
+                                        this.handleQrClick(e, balance.assetId)
+                                      }
                                     >
                                       <Dropdown>
                                         <DropdownControl>
                                           <span className="qr-icn">
                                             <img
                                               className="icon"
-                                              src={`${process.env
-                                                .PUBLIC_URL}/images/qr-icn.svg`}
+                                              src={`${process.env.PUBLIC_URL}/images/qr-icn.svg`}
                                             />
                                           </span>
                                         </DropdownControl>
@@ -268,10 +270,7 @@ export class WalletBalanceList extends React.Component<WalletBalanceListProps> {
                           {balance.baseAsset!.name}
                         </td>
                         <td className="_amount">
-                          {moneyFloor(
-                            balance.balance,
-                            balance.asset.accuracy
-                          )}{' '}
+                          {moneyFloor(balance.balance, balance.asset.accuracy)}{' '}
                           {balance.asset.name}
                         </td>
                         <td className="_amount_responsive">
@@ -334,8 +333,7 @@ export class WalletBalanceList extends React.Component<WalletBalanceListProps> {
                                             wallet.id,
                                             balance.assetId
                                           ),
-                                          `${process.env
-                                            .PUBLIC_URL}/images/paymentMethods/deposit-credit-card.svg`,
+                                          `${process.env.PUBLIC_URL}/images/paymentMethods/deposit-credit-card.svg`,
                                           balance.assetId
                                         ),
                                       this.isAvailableForCryptoDeposit(
@@ -346,8 +344,7 @@ export class WalletBalanceList extends React.Component<WalletBalanceListProps> {
                                           ROUTE_DEPOSIT_CRYPTO_TO(
                                             balance.assetId
                                           ),
-                                          `${process.env
-                                            .PUBLIC_URL}/images/paymentMethods/deposit-bl-transfer-icn.svg`,
+                                          `${process.env.PUBLIC_URL}/images/paymentMethods/deposit-bl-transfer-icn.svg`,
                                           balance.assetId
                                         ),
                                       this.isAvailableForSwiftDeposit(
@@ -358,8 +355,7 @@ export class WalletBalanceList extends React.Component<WalletBalanceListProps> {
                                           ROUTE_DEPOSIT_SWIFT_TO(
                                             balance.assetId
                                           ),
-                                          `${process.env
-                                            .PUBLIC_URL}/images/paymentMethods/deposit-swift-icn.svg`,
+                                          `${process.env.PUBLIC_URL}/images/paymentMethods/deposit-swift-icn.svg`,
                                           balance.assetId
                                         )
                                     ]}
@@ -381,8 +377,7 @@ export class WalletBalanceList extends React.Component<WalletBalanceListProps> {
                                           ROUTE_WITHDRAW_CRYPTO_FROM(
                                             balance.assetId
                                           ),
-                                          `${process.env
-                                            .PUBLIC_URL}/images/paymentMethods/withdraw-bl-transfer-icn.svg`,
+                                          `${process.env.PUBLIC_URL}/images/paymentMethods/withdraw-bl-transfer-icn.svg`,
                                           balance.assetId
                                         ),
                                       this.isAvailableForSwiftWithdraw(
@@ -393,8 +388,7 @@ export class WalletBalanceList extends React.Component<WalletBalanceListProps> {
                                           ROUTE_WITHDRAW_SWIFT_FROM(
                                             balance.assetId
                                           ),
-                                          `${process.env
-                                            .PUBLIC_URL}/images/paymentMethods/withdraw-swift-icn.svg`,
+                                          `${process.env.PUBLIC_URL}/images/paymentMethods/withdraw-swift-icn.svg`,
                                           balance.assetId
                                         )
                                     ]}
@@ -456,7 +450,7 @@ export class WalletBalanceList extends React.Component<WalletBalanceListProps> {
             <div className="asset-address-label">Tag</div>
           </div>
         ) : this.assetStore.selectedAsset &&
-        this.assetStore.selectedAsset.address ? (
+          this.assetStore.selectedAsset.address ? (
           <div>
             <div className="asset-address-label">
               {this.assetStore.selectedAsset.address}
@@ -493,7 +487,8 @@ export class WalletBalanceList extends React.Component<WalletBalanceListProps> {
           onClick={() =>
             route.includes('deposit')
               ? this.trackStartDeposit(label, assetId)
-              : this.trackStartWithdraw(label, assetId)}
+              : this.trackStartWithdraw(label, assetId)
+          }
         >
           <img className="icon" src={iconUrl} />
           {label}

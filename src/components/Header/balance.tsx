@@ -1,11 +1,11 @@
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {RootStoreProps} from '../../App';
 import {STORE_ROOT} from '../../constants/stores';
 import {moneyRound} from '../../utils';
 import {asAssetBalance} from '../hoc/assetBalance';
 
-export const Balance: React.SFC<RootStoreProps> = ({rootStore}) => {
+export const Balance: React.FC<RootStoreProps> = ({rootStore}) => {
   const {
     uiStore: {showBaseCurrencyPicker, toggleBaseAssetPicker},
     profileStore: {setBaseAsset, baseAssetAsModel},

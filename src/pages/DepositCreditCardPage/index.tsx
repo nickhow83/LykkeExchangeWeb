@@ -1,6 +1,6 @@
-import {Dialog} from '@lykkex/react-components';
+import {Dialog} from '@lykkecity/react-components';
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {RouteComponentProps} from 'react-router-dom';
 import {RootStoreProps} from '../../App';
 import DepositCreditCardForm from '../../components/DepositCreditCardForm';
@@ -97,8 +97,7 @@ export class DepositCreditCardPage extends React.Component<
             {cardIcons.map(cardIcon => (
               <li key={cardIcon}>
                 <img
-                  src={`${process.env
-                    .PUBLIC_URL}/images/paymentMethods/${cardIcon}`}
+                  src={`${process.env.PUBLIC_URL}/images/paymentMethods/${cardIcon}`}
                 />
               </li>
             ))}

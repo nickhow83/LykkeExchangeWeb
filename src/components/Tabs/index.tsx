@@ -1,5 +1,5 @@
-import * as classNames from 'classnames';
-import * as React from 'react';
+import classNames from 'classnames';
+import React from 'react';
 import {Link, Route} from 'react-router-dom';
 import './style.css';
 
@@ -13,7 +13,7 @@ interface TabPaneProps {
   to: string;
 }
 
-export const TabLink: React.SFC<TabLinkProps> = ({active, label, to}) => (
+export const TabLink: React.FC<TabLinkProps> = ({active, label, to}) => (
   <Route
     path={to}
     exact={true}
@@ -28,7 +28,7 @@ export const TabLink: React.SFC<TabLinkProps> = ({active, label, to}) => (
   />
 );
 
-export const TabPane: React.SFC<TabPaneProps> = ({to, children}) => (
+export const TabPane: React.FC<TabPaneProps> = ({to, children}) => (
   <Route
     path={to}
     exact={true}

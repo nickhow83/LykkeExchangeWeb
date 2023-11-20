@@ -1,5 +1,4 @@
-import * as classnames from 'classnames';
-import * as React from 'react';
+import classNames from 'classnames';
 
 import './style.css';
 
@@ -7,7 +6,7 @@ const SOCIAL_CLASS_NAME = 'social';
 
 export default ({theme}: any) => (
   <ul
-    className={classnames(SOCIAL_CLASS_NAME, {
+    className={classNames(SOCIAL_CLASS_NAME, {
       [SOCIAL_CLASS_NAME + '--' + theme]: theme
     })}
   >

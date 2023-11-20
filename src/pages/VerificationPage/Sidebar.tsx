@@ -4,7 +4,7 @@ import {
   UpgradeToNextTierWidget
 } from '../../components/Verification';
 
-export const Sidebar: React.SFC = () => (
+export const Sidebar: React.FC = () => (
   <div className="verification-page__sidebar">
     <div className="verification-page__sidebar-inner">
       <AccountCurrentTierWidget />

@@ -5,7 +5,7 @@ import {RootStoreProps} from '../../App';
 import {AnalyticsEvent} from '../../constants/analyticsEvents';
 import {STORE_ROOT} from '../../constants/stores';
 
-export const DepositLimits: React.SFC<RootStoreProps> = ({rootStore}) => {
+export const DepositLimits: React.FC<RootStoreProps> = ({rootStore}) => {
   const analyticsService = rootStore!.analyticsService;
   const tierInfo = rootStore!.kycStore.tierInfo;
   if (!tierInfo) {
@@ -18,7 +18,7 @@ export const DepositLimits: React.SFC<RootStoreProps> = ({rootStore}) => {
   }
   const current = currentTier.Current;
   const max = currentTier.MaxLimit;
-  const ratio = Math.min(current / max * 100, 100);
+  const ratio = Math.min((current / max) * 100, 100);
 
   let selectedGradient;
   if (current >= max) {

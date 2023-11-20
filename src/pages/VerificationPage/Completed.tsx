@@ -7,9 +7,11 @@ import {Wrapper} from '../../components/Verification';
 import {AnalyticsEvent} from '../../constants/analyticsEvents';
 import {STORE_ROOT} from '../../constants/stores';
 
-export const Completed: React.SFC<
-  RootStoreProps & RouteComponentProps<any>
-> = ({rootStore, location, history}) => {
+export const Completed: React.FC<RootStoreProps & RouteComponentProps<any>> = ({
+  rootStore,
+  location,
+  history
+}) => {
   const kycStore = rootStore!.kycStore;
   const analyticsService = rootStore!.analyticsService;
   const tierInfo = kycStore.tierInfo;

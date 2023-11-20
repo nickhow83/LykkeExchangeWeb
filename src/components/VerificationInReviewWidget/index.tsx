@@ -5,7 +5,7 @@ import {AnalyticsEvent} from '../../constants/analyticsEvents';
 import {STORE_ROOT} from '../../constants/stores';
 import './style.css';
 
-export const VerificationInReviewWidget: React.SFC<RootStoreProps> = ({
+export const VerificationInReviewWidget: React.FC<RootStoreProps> = ({
   rootStore
 }) => {
   const analyticsService = rootStore!.analyticsService;

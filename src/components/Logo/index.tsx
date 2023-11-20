@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 export default ({color}: any) => (
   <div className="header__logo header_logo">
     <a href="/">

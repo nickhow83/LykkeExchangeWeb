@@ -5,7 +5,7 @@ import {AnalyticsEvent} from '../../constants/analyticsEvents';
 import {STORE_ROOT} from '../../constants/stores';
 import StepItem from './StepItem';
 
-export const UpgradeToNextTierWidget: React.SFC<RootStoreProps> = ({
+export const UpgradeToNextTierWidget: React.FC<RootStoreProps> = ({
   rootStore
 }) => {
   const tierNamesMapping = {

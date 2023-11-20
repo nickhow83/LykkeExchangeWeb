@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import * as React from 'react';
+import React from 'react';
 import './style.css';
 
 export interface FormSelectProps {
@@ -10,7 +10,7 @@ export interface FormSelectProps {
   value?: string;
 }
 
-export const FormSelect: React.SFC<FormSelectProps> = ({
+export const FormSelect: React.FC<FormSelectProps> = ({
   className,
   name,
   onChange,

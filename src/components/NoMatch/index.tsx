@@ -1,5 +1,4 @@
-import {Error404} from '@lykkex/react-components';
-import * as React from 'react';
+import {Error404} from '@lykkecity/react-components';
 
 export const NoMatch = () => (
   <div className="container">

@@ -1,4 +1,4 @@
-import {Table} from '@lykkex/react-components';
+import {Table} from '@lykkecity/react-components';
 import classnames from 'classnames';
 import {computed, observable, reaction} from 'mobx';
 import {inject, observer} from 'mobx-react';
@@ -22,8 +22,7 @@ import {arraysEqual} from '../../utils';
 import './style.css';
 
 const PAGE_SIZE = 25;
-const ASSET_DEFAULT_ICON_URL = `${process.env
-  .PUBLIC_URL}/images/assets/asset_default.jpg`;
+const ASSET_DEFAULT_ICON_URL = `${process.env.PUBLIC_URL}/images/assets/asset_default.jpg`;
 
 interface TransactionsTableProps extends RootStoreProps {
   hasAssetLinks?: boolean;
@@ -54,7 +53,7 @@ export class TransactionsTable extends React.Component<TransactionsTableProps> {
   @observable private hasMoreTransactions = true;
   @observable private showStickyHeader = false;
 
-  private filtersRowElement: HTMLDivElement;
+  private filtersRowElement: HTMLDivElement | null = null;
 
   @computed
   get showEmptyState() {
@@ -215,7 +214,8 @@ export class TransactionsTable extends React.Component<TransactionsTableProps> {
                         className="transactions-table__operation-col"
                         // tslint:disable-next-line:jsx-no-lambda
                         onClick={() =>
-                          this.handleColumnHeaderClick('Operation')}
+                          this.handleColumnHeaderClick('Operation')
+                        }
                       >
                         Operation
                       </th>
@@ -276,7 +276,8 @@ export class TransactionsTable extends React.Component<TransactionsTableProps> {
                                 month="2-digit"
                                 year="2-digit"
                                 value={transaction.dateTime}
-                              />, <FormattedTime value={transaction.dateTime} />
+                              />
+                              , <FormattedTime value={transaction.dateTime} />
                             </td>
                             <td>
                               {TransactionTypeLabel[transaction.type]}{' '}
@@ -370,7 +371,8 @@ export class TransactionsTable extends React.Component<TransactionsTableProps> {
       key={filter.label}
       // tslint:disable-next-line:jsx-no-lambda
       onClick={() =>
-        this.handleTransactionsFilterChange(filter.value, isSticky)}
+        this.handleTransactionsFilterChange(filter.value, isSticky)
+      }
     >
       {filter.label}
     </span>

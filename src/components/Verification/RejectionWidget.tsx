@@ -4,7 +4,7 @@ interface RejectionWidgetProps {
   text: string;
 }
 
-export const RejectionWidget: React.SFC<RejectionWidgetProps> = ({text}) => {
+export const RejectionWidget: React.FC<RejectionWidgetProps> = ({text}) => {
   if (!text) {
     return null;
   }

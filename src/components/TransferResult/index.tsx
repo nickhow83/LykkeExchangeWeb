@@ -1,6 +1,6 @@
-import {Icon} from '@lykkex/react-components';
+import {Icon} from '@lykkecity/react-components';
 import {inject, observer} from 'mobx-react';
-import * as React from 'react';
+import React from 'react';
 import {Link, RouteComponentProps} from 'react-router-dom';
 import {RootStoreProps} from '../../App';
 import {ROUTE_WALLETS_HFT} from '../../constants/routes';
@@ -8,9 +8,8 @@ import {STORE_ROOT} from '../../constants/stores';
 import {NumberFormat} from '../NumberFormat';
 import './style.css';
 
-export const TransferResult: React.SFC<
-  RootStoreProps & RouteComponentProps<any>
-> = props => {
+export const TransferResult: React.FC<RootStoreProps &
+  RouteComponentProps<any, any, {amount: number; assetId: string}>> = props => {
   const {amount, assetId} = props.location.state;
   const assetStore = props.rootStore!.assetStore;
   const asset = assetStore.getById(assetId);
@@ -38,8 +37,14 @@ export const TransferResult: React.SFC<
   );
 };
 
-export const TransferFail: React.SFC<RouteComponentProps<any>> = ({
-  location: {state: {reason}}
+export const TransferFail: React.FC<RouteComponentProps<
+  any,
+  any,
+  {reason: string}
+>> = ({
+  location: {
+    state: {reason}
+  }
 }) => {
   return (
     <div className="transfer-result">
