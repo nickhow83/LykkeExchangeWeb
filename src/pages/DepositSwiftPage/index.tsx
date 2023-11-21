@@ -69,7 +69,7 @@ export class DepositSwiftPage extends React.Component<DepositSwiftPageProps> {
               To deposit {!!asset && asset!.name} to your Portfolio please use
               the following bank account details.
             </div>
-            <Formik
+            <Formik<{}, DepositSwiftModel>
               initialValues={this.depositStore.swiftRequisites}
               enableReinitialize
               validationSchema={Yup.object().shape({

@@ -4,7 +4,7 @@ import {AssetModel} from './index';
 
 export class BalanceModel {
   assetId: string = '';
-  asset: AssetModel;
+  asset!: AssetModel;
   @observable balance: number = 0;
   @observable reserved: number = 0;
 

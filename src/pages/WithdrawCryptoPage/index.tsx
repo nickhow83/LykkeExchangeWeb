@@ -1,5 +1,12 @@
 import classnames from 'classnames';
-import {Field, FieldProps, Form, Formik, FormikProps} from 'formik';
+import {
+  Field,
+  FieldProps,
+  Form,
+  Formik,
+  FormikActions,
+  FormikProps
+} from 'formik';
 import {computed, observable} from 'mobx';
 import {inject, observer} from 'mobx-react';
 import React from 'react';
@@ -122,8 +129,15 @@ export class WithdrawCryptoPage extends React.Component<
                 )
               })}
               // tslint:disable-next-line:jsx-no-lambda
-              onSubmit={this.handleSubmit}
-              render={this.renderForm}
+              onSubmit={(values, actions) =>
+                this.handleSubmit(
+                  values as WithdrawCryptoModel,
+                  actions as FormikActions<WithdrawCryptoModel>
+                )
+              }
+              render={props =>
+                this.renderForm(props as FormikProps<WithdrawCryptoModel>)
+              }
             />
           </div>
         </div>
@@ -241,7 +255,7 @@ export class WithdrawCryptoPage extends React.Component<
 
   private handleSubmit = async (
     values: WithdrawCryptoModel,
-    formikBag: any
+    formikBag: FormikActions<WithdrawCryptoModel>
   ) => {
     const {assetId} = this.props.match.params;
     const asset = this.assetStore.getById(assetId);

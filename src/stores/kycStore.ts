@@ -17,11 +17,11 @@ interface VerificationDocuments {
 }
 
 export class KycStore {
-  @observable tierInfo: TierInfo;
+  @observable tierInfo!: TierInfo;
   @observable tierInfoLoading: boolean = false;
-  @observable documents: Documents;
+  @observable documents!: Documents;
   @observable documentsLoading: boolean = false;
-  @observable registration: RegistrationResponse;
+  @observable registration!: RegistrationResponse;
   @observable registrationLoading: boolean = false;
   @observable questionnaire: Questionnaire[] = [];
   @observable questionnaireLoading: boolean = false;

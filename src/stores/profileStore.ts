@@ -23,7 +23,7 @@ const TfaStatus = {
 export class ProfileStore {
   @observable baseAsset: string = baseCurrencyStorage.get() || 'USD';
   @observable tfaStatus: string = '';
-  @observable code2fa: string;
+  @observable code2fa: string = '';
 
   @computed
   get is2faEnabled() {

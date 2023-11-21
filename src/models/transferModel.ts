@@ -8,8 +8,8 @@ export class TransferModel {
   @observable from: WalletModel;
   @observable to: WalletModel;
   @observable amount: number = 0;
-  @observable asset: AssetModel;
-  @observable code2fa: string;
+  @observable asset!: AssetModel;
+  @observable code2fa: string = '';
 
   @computed
   get amountInBaseCurrency() {

@@ -1,5 +1,12 @@
 import classnames from 'classnames';
-import {Field, FieldProps, Form, Formik, FormikProps} from 'formik';
+import {
+  Field,
+  FieldProps,
+  Form,
+  Formik,
+  FormikActions,
+  FormikProps
+} from 'formik';
 import {computed, observable} from 'mobx';
 import {inject, observer} from 'mobx-react';
 import React from 'react';
@@ -112,8 +119,15 @@ export class WithdrawSwiftPage extends React.Component<WithdrawSwiftPageProps> {
                   .matches(BIC_REGEX, 'Invalid SWIFT')
               })}
               // tslint:disable-next-line:jsx-no-lambda
-              onSubmit={this.handleSubmit}
-              render={this.renderForm}
+              onSubmit={(values, actions) =>
+                this.handleSubmit(
+                  values as WithdrawSwiftModel,
+                  actions as FormikActions<WithdrawSwiftModel>
+                )
+              }
+              render={props =>
+                this.renderForm(props as FormikProps<WithdrawSwiftModel>)
+              }
             />
           </div>
         </div>

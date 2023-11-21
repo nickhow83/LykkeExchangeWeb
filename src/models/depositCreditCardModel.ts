@@ -9,8 +9,8 @@ export const DEFAULT_DEPOSIT_OPTION = 'BankCard';
 
 export class DepositCreditCardModel {
   @observable amount: number = 0;
-  @observable asset: AssetModel;
-  @observable wallet: WalletModel;
+  @observable asset!: AssetModel;
+  @observable wallet!: WalletModel;
 
   constructor(deposit?: Partial<DepositCreditCardModel>) {
     if (deposit) {

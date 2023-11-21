@@ -14,9 +14,9 @@ const tokenStorage = StorageUtils.withKey(TOKEN_KEY);
 
 class SocketStore {
   readonly rootStore: RootStore;
-  private socket: Socket | null;
+  private socket: Socket | null = null;
   private listeners: Map<string, () => void> = new Map();
-  private backoff: Backoff;
+  private backoff!: Backoff;
 
   constructor(rootStore: RootStore) {
     this.rootStore = rootStore;

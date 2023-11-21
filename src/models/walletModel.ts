@@ -14,7 +14,7 @@ export class WalletModel {
   @observable desc = '';
   @observable apiKey = '';
   @observable apiv2Only = false;
-  @observable type: WalletType;
+  @observable type!: WalletType;
 
   @observable updating: boolean = false;
 

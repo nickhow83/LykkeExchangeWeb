@@ -43,12 +43,12 @@ export class TransferPage extends React.Component<TransferPageProps> {
       if (!!wallet) {
         this.transferStore.newTransfer.setWallet(wallet, dest);
       } else {
-        ['from', 'to'].forEach((x: 'from' | 'to') =>
+        ['from', 'to'].forEach(x => {
           this.transferStore.newTransfer.setWallet(
             this.walletStore.createWallet(),
-            x
-          )
-        );
+            x as 'from' | 'to'
+          );
+        });
       }
     }
 

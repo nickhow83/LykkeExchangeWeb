@@ -1,5 +1,5 @@
 import {inject, observer} from 'mobx-react';
-import React from 'react';
+import * as React from 'react';
 import {RootStoreProps} from '../../App';
 import AffiliateTabs from '../../components/AffiliateTabs/index';
 // import {ROUTE_AFFILIATE} from '../../constants/routes';

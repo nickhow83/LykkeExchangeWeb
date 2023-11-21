@@ -151,7 +151,7 @@ export class ProtectedPage extends React.Component<
   private readonly profileStore = this.props.rootStore!.profileStore;
   private readonly uiStore = this.props.rootStore!.uiStore;
   private readonly affiliateStore = this.props.rootStore!.affiliateStore;
-  private unlistenRouteChange: () => void;
+  private unlistenRouteChange!: () => void;
   private readonly dialogStore = this.props.rootStore!.dialogStore;
   private readonly socketStore = this.props.rootStore!.socketStore;
   private readonly authStore = this.props.rootStore!.authStore;

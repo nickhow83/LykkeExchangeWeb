@@ -11,20 +11,20 @@ export enum DialogActionType {
 }
 
 export class DialogActionModel {
-  id: string;
-  type: DialogActionType;
-  text: string;
-  @observable done: boolean;
+  id: string = '';
+  type!: DialogActionType;
+  text: string = '';
+  @observable done: boolean = false;
 }
 
 // tslint:disable-next-line:max-classes-per-file
 export class DialogModel {
-  id: string;
-  conditionType?: DialogConditionType;
-  header: string;
-  text: string;
-  @observable actions: DialogActionModel[];
-  @observable visible: boolean;
+  id: string = '';
+  conditionType!: DialogConditionType;
+  header: string = '';
+  text: string = '';
+  @observable actions: DialogActionModel[] = [];
+  @observable visible: boolean = false;
 
   @computed
   get isConfirmed() {
@@ -35,7 +35,7 @@ export class DialogModel {
       .every((action: DialogActionModel) => !!action.done);
   }
 
-  constructor(dialog?: Partial<DialogModel>) {
+  constructor(dialog: Partial<DialogModel> = {}) {
     Object.assign(this, dialog);
   }
 }

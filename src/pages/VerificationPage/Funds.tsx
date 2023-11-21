@@ -36,7 +36,7 @@ export class Funds extends React.Component<RootStoreProps> {
               maxFileSize={3}
               rejectedImage={rejectedPofImage}
               accept={['.png', '.jpg', '.pdf', '.jpeg']}
-              onDocumentTaken={(document: File, from: SelectorMode) => {
+              onDocumentTaken={(document: File, from?: SelectorMode) => {
                 this.kycStore.setDocument('FUNDS', document);
 
                 if (from === 'LIBRARY') {

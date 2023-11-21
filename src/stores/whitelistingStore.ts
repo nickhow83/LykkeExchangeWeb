@@ -8,14 +8,14 @@ import WhitelistingModel from '../models/whitelistingModel';
 export class WhitelistingStore {
   readonly rootStore: RootStore;
 
-  @observable whitelistings: WhitelistingModel[];
+  @observable whitelistings!: WhitelistingModel[];
   @observable isLoading: boolean = false;
   @observable isLoaded: boolean = false;
 
-  @observable cryptoOperations: CryptoOperationModel[];
+  @observable cryptoOperations!: CryptoOperationModel[];
   @observable isLoadingCryptoOperations: boolean = false;
 
-  @observable wallets: WalletDtoModel[];
+  @observable wallets!: WalletDtoModel[];
   @observable isLoadingWallets: boolean = false;
 
   @observable isLoadingCreate: boolean = false;

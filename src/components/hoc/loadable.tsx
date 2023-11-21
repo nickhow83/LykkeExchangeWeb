@@ -1,11 +1,11 @@
 import React from 'react';
 import Spinner from '../../components/Spinner';
 
-type WrappedComponentProps<P> = React.ComponentClass<P> | React.FC<P>;
-
-type HOCComponent = <P>(
-  loading: boolean | ((p: P) => boolean)
-) => (C: WrappedComponentProps<P>) => React.FC<P>;
-
-export const loadable: HOCComponent = loading => C => props =>
-  loading ? <Spinner /> : <C {...props} />;
+export const loadable = (loading: boolean) => <P extends object>(
+  Component: React.ComponentType<P>
+) =>
+  class WithLoading extends React.Component<P> {
+    render() {
+      return loading ? <Spinner /> : <Component {...(this.props as P)} />;
+    }
+  };

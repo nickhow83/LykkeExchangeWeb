@@ -16,14 +16,14 @@ interface TransactionDetailResponse {
 export class DepositStore {
   @observable defaultDeposit: DepositCreditCardModel;
   @observable newDeposit: DepositCreditCardModel;
-  @observable swiftRequisites: DepositSwiftModel;
+  @observable swiftRequisites!: DepositSwiftModel;
   @observable swiftRequisitesLoading: boolean = false;
   @observable gatewayUrls: GatewayUrls;
   @observable feePercentage: number = 0;
-  @observable submitDeposit: () => void;
+  @observable submitDeposit!: () => void;
   @observable showMaxDepositErrorDialog: boolean = false;
   @observable fetchBankCardPaymentUrlError: any;
-  @observable transactionDetails: TransactionDetailResponse;
+  @observable transactionDetails!: TransactionDetailResponse;
   @observable transactionDetailsLoading: boolean = false;
 
   constructor(readonly rootStore: RootStore, private api?: DepositApi) {

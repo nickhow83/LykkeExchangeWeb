@@ -6,7 +6,7 @@ import {BalanceModel, WalletModel} from '../models/index';
 export class BalanceStore {
   readonly rootStore: RootStore;
 
-  @observable balances: any[];
+  @observable balances: any[] = [];
 
   constructor(rootStore: RootStore, private api?: BalanceApi) {
     this.rootStore = rootStore;

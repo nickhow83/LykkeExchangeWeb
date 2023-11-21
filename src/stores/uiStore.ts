@@ -15,13 +15,13 @@ export class UiStore {
   @observable showWalletDrawer: boolean = false;
   @observable showEditWalletDrawer: boolean = false;
   @observable showConfirmRegenerateKey: boolean = false;
-  @observable showQrWindow: boolean;
-  @observable showBaseCurrencyPicker: boolean;
-  @observable showBetaBanner: boolean;
+  @observable showQrWindow: boolean = false;
+  @observable showBaseCurrencyPicker: boolean = false;
+  @observable showBetaBanner: boolean = false;
   @observable showEthWarning: boolean = false;
   @observable showAssetAddressModal: boolean = false;
-  @observable transferError: string;
-  @observable apiError: string;
+  @observable transferError: string = '';
+  @observable apiError: string = '';
   @observable activeHeaderMenuItem: string = MenuItem.Funds;
   @observable cookieBannerVisible: boolean = false;
 

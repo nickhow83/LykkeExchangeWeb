@@ -9,18 +9,14 @@ import {
   ROUTE_ROOT
 } from '../../constants/routes';
 import {STORE_ROOT} from '../../constants/stores';
-import {AffiliateStore, FeatureStore, RootStore, UiStore} from '../../stores';
+import {AffiliateStore, FeatureStore, UiStore} from '../../stores';
 import {NumberFormat} from '../NumberFormat';
 import {TabLink, TabPane} from '../Tabs';
 import './style.css';
-
-interface Props {
-  rootStore: RootStore;
-  history: H.History;
-}
+import {RootStoreProps} from 'src/App';
 
 export class AffiliateTabs extends React.Component<
-  Props & RouteComponentProps<any>
+  RootStoreProps & RouteComponentProps<any>
 > {
   readonly affiliateStore: AffiliateStore;
   readonly featureStore: FeatureStore;
@@ -28,14 +24,14 @@ export class AffiliateTabs extends React.Component<
   readonly uiStore: UiStore;
   readonly formatAccuracy: number = 8;
 
-  constructor(props: Props & RouteComponentProps<any>) {
+  constructor(props: RootStoreProps & RouteComponentProps<any>) {
     super(props);
 
     const {rootStore, history} = props;
 
-    this.uiStore = rootStore.uiStore;
-    this.affiliateStore = rootStore.affiliateStore;
-    this.featureStore = rootStore.featureStore;
+    this.uiStore = rootStore!.uiStore;
+    this.affiliateStore = rootStore!.affiliateStore;
+    this.featureStore = rootStore!.featureStore;
     this.history = history;
 
     reaction(

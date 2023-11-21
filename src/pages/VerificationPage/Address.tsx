@@ -36,7 +36,7 @@ export class Address extends React.Component<RootStoreProps> {
               maxFileSize={3}
               rejectedImage={rejectedPoaImage}
               accept={['.png', '.jpg', '.pdf', '.jpeg']}
-              onDocumentTaken={(document: File, from: SelectorMode) => {
+              onDocumentTaken={(document: File, from?: SelectorMode) => {
                 this.kycStore.setDocument('ADDRESS', document);
                 if (from === 'LIBRARY') {
                   this.analyticsService.track(

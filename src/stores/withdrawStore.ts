@@ -5,8 +5,8 @@ import {WithdrawApiV1} from '../api/withdrawApiV1';
 import {WithdrawCryptoModel, WithdrawSwiftModel} from '../models';
 
 export class WithdrawStore {
-  @observable withdrawCrypto: WithdrawCryptoModel;
-  @observable withdrawSwift: WithdrawSwiftModel;
+  @observable withdrawCrypto!: WithdrawCryptoModel;
+  @observable withdrawSwift!: WithdrawSwiftModel;
   @observable relativeFee: number = 0;
   @observable absoluteFee: number = 0;
   @observable swiftFee: number = 0;

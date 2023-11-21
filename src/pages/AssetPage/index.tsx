@@ -24,9 +24,9 @@ const QRCode = require('qrcode.react');
 import Spinner from '../../components/Spinner';
 import './style.css';
 
-interface AssetPageProps extends RootStoreProps, RouteComponentProps<any> {}
-
-export class AssetPage extends React.Component<AssetPageProps> {
+export class AssetPage extends React.Component<
+  RootStoreProps & RouteComponentProps<any>
+> {
   private readonly assetStore = this.props.rootStore!.assetStore;
   private readonly transactionStore = this.props.rootStore!.transactionStore;
   private readonly walletStore = this.props.rootStore!.walletStore;
@@ -153,24 +153,21 @@ export class AssetPage extends React.Component<AssetPageProps> {
                   {this.isAvailableForCreditCardDeposit &&
                     this.renderMenuItem(
                       ROUTE_DEPOSIT_CREDIT_CARD_TO(wallet.id, asset.id),
-                      `${process.env
-                        .PUBLIC_URL}/images/paymentMethods/deposit-credit-card.svg`,
+                      `${process.env.PUBLIC_URL}/images/paymentMethods/deposit-credit-card.svg`,
                       'Credit Card',
                       asset.id
                     )}
                   {this.isAvailableForCryptoDeposit &&
                     this.renderMenuItem(
                       ROUTE_DEPOSIT_CRYPTO_TO(asset.id),
-                      `${process.env
-                        .PUBLIC_URL}/images/paymentMethods/deposit-bl-transfer-icn.svg`,
+                      `${process.env.PUBLIC_URL}/images/paymentMethods/deposit-bl-transfer-icn.svg`,
                       'Blockchain Transfer',
                       asset.id
                     )}
                   {this.isAvailableForSwiftDeposit &&
                     this.renderMenuItem(
                       ROUTE_DEPOSIT_SWIFT_TO(asset.id),
-                      `${process.env
-                        .PUBLIC_URL}/images/paymentMethods/deposit-swift-icn.svg`,
+                      `${process.env.PUBLIC_URL}/images/paymentMethods/deposit-swift-icn.svg`,
                       'SWIFT',
                       asset.id
                     )}
@@ -183,16 +180,14 @@ export class AssetPage extends React.Component<AssetPageProps> {
                   {this.isAvailableForCryptoWithdraw &&
                     this.renderMenuItem(
                       ROUTE_WITHDRAW_CRYPTO_FROM(asset.id),
-                      `${process.env
-                        .PUBLIC_URL}/images/paymentMethods/withdraw-bl-transfer-icn.svg`,
+                      `${process.env.PUBLIC_URL}/images/paymentMethods/withdraw-bl-transfer-icn.svg`,
                       'Blockchain Transfer',
                       asset.id
                     )}
                   {this.isAvailableForSwiftWithdraw &&
                     this.renderMenuItem(
                       ROUTE_WITHDRAW_SWIFT_FROM(asset.id),
-                      `${process.env
-                        .PUBLIC_URL}/images/paymentMethods/withdraw-swift-icn.svg`,
+                      `${process.env.PUBLIC_URL}/images/paymentMethods/withdraw-swift-icn.svg`,
                       'SWIFT',
                       asset.id
                     )}
@@ -308,7 +303,8 @@ export class AssetPage extends React.Component<AssetPageProps> {
           onClick={() =>
             route.includes('deposit')
               ? this.trackStartDeposit(label, assetId)
-              : this.trackStartWithdraw(label, assetId)}
+              : this.trackStartWithdraw(label, assetId)
+          }
         >
           <img className="icon" src={iconUrl} />
           {label}

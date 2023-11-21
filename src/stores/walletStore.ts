@@ -13,11 +13,11 @@ import {sum} from '../utils/math';
 
 export class WalletStore {
   @observable wallets: WalletModel[] = [];
-  @observable selectedWallet: WalletModel;
+  @observable selectedWallet!: WalletModel;
   @observable walletsLoading: boolean = false;
   @observable walletsInitialized: boolean = false;
-  @observable origName: string;
-  @observable origDescription: string;
+  @observable origName: string = '';
+  @observable origDescription: string = '';
   @computed
   get totalBalance() {
     return this.wallets.map(w => w.totalBalance).reduce(sum, 0);
